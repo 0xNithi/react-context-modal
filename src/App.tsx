@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import useModal from 'hooks/useModal';
+import SimpleModal from 'components/SimpleModal';
 
-function App() {
+const App: React.FC = () => {
+  const [handlePresent] = useModal(<SimpleModal />);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex justify-center items-center h-screen">
+      <button
+        type="button"
+        className="border border-green-500 p-2 rounded-xl text-base font-medium bg-green-300 transition duration-300 ease-in-out transform hover:scale-105"
+        onClick={handlePresent}
+      >
+        Open Modal
+      </button>
     </div>
   );
-}
+};
 
 export default App;
